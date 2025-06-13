@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login 中文角</title>
+    <link rel="stylesheet" href="/css/styleLogin.css">
+    <link href="https://fonts.googleapis.com/css2?family=Comic+Neue&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Hachi+Maru+Pop&family=LXGW+WenKai+TC&family=Long+Cang&family=Ma+Shan+Zheng&family=Zen+Maru+Gothic&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="login-container">
+        <h1>✨ <c class="zen-maru-gothic-regular">登录中文角</c> - Accedi all'angolo cinese ✨</h1>
+        <p>Inserisci le tue credenziali per accedere </p>
+        <form method="post" action="/login">
+            <label for="username">Nome utente</label>
+            <input type="text" id="username" name="username" required>
+
+            <label for="password">Password</label>
+            <input type="password" id="password" name="password" required>
+
+            <button type="submit" class="btn">✨ Accedi ✨</button>
+        </form>
+        <p class="register-link">Non hai un account? <a href="/register">Registrati qui 💫</a></p>
+    </div>
+</body>
+</html>
