@@ -1,0 +1,25 @@
+.search-container {
+	margin: 2rem auto;
+	text-align: center;
+	font-size: 1.2rem;
+	color: $color-primary;
+
+	input {
+		margin-top: 0.5rem;
+		padding: 0.7rem 1.2rem;
+		border: 2px solid $color-secondary;
+		border-radius: 25px;
+		width: 70%;
+		max-width: 400px;
+		font-size: 1rem;
+		background-color: $color-lightest-bg;
+		color: $color-text;
+		box-shadow: 2px 2px 6px $color-shadow-input;
+		transition: border-color 0.3s;
+
+		&:focus {
+			outline: none;
+			border-color: $color-primary;
+		}
+	}
+}

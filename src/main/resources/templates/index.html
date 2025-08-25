@@ -1,5 +1,11 @@
 <!DOCTYPE html>
 <html lang="it">
+
+<!-- Head fragment -->
+
+<head th:replace="fragments/head :: common-head('中文角')"></head>
+
+<!--
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,38 +13,31 @@
     <link rel="stylesheet" href="/css/styleIndex.css">
     <link href="https://fonts.googleapis.com/css2?family=Comic+Neue&display=swap" rel="stylesheet">
 	<link href="https://fonts.googleapis.com/css2?family=Hachi+Maru+Pop&family=Zen+Maru+Gothic&display=swap" rel="stylesheet">
-</head>
+</head>-->
+
 <body>
-    <header>
-        <div class="logo"> <c class="zen-maru-gothic-regular">中文角</c> - L'angolo cinese</div>
-        <nav>
-            <ul>
-                <li><a href="/">Home</a></li>
-                <li><a href="/lingua/cinese">Primi passi</a></li>
-                <li><a href="/lingua/cinese/regoleGrammaticali">Tutte le regole</a></li>
-                <li><a href="/lingua/cinese/testi">Tutti i testi</a></li>
-                <li><a href="/lingua/cinese/glossario">Glossario</a></li>
-            </ul>
-        </nav>
-    </header>
+	<!-- Navbar -->
+	<header th:replace="fragments/navbar :: navbar"></header>
 
-    <section class="hero">
-        <h1>Benvenuto nell'angolo cinese!</h1>
-        <p>Qui puoi trovare le regole grammaticali di cinese base e testi per esercitarti sulla lettura del cinese semplificato ✨</p>
-        <a href="#" class="btn">Inizia il viaggio 💖</a>
-    </section>
+	<section class="hero">
+		<h1>Benvenuto nell'angolo cinese!</h1>
+		<p>Qui puoi trovare le regole grammaticali di cinese base e testi per esercitarti sulla lettura del cinese
+			semplificato ✨</p>
+		<a href="/lingua/cinese" class="btn-primary">Inizia il viaggio 💖</a>
+		<a href="/login" class="btn-secondary">Accedi al tuo profilo 💞</a>
 
-    <section class="content">
-        <h2>✨ Cosa troverai nel sito ✨</h2>
-        <ul class="features">
-            <li>💗 Regole grammaticali di cinese per principianti</li>
-            <li>🎀 Testi di livello base in cinese</li>
-            <li>🍓 Glossario per tutte le parole cinesi utilizzate nel sito</li>
-        </ul>
-    </section>
+	</section>
 
-    <footer>
-        <p>&copy; 2025 L'angolo cinese - Tutti i diritti riservati 🌈</p>
-    </footer>
+	<section class="content">
+		<h2>✨ Cosa troverai nel sito ✨</h2>
+		<ul class="features">
+			<li>💗 Regole grammaticali di cinese per principianti</li>
+			<li>🎀 Testi di livello base in cinese</li>
+			<li>🍓 Glossario per tutte le parole cinesi utilizzate nel sito</li>
+		</ul>
+	</section>
+
+	<footer th:replace="fragments/footer :: footer"></footer>
 </body>
+
 </html>

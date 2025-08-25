@@ -107,6 +107,15 @@ nav a:hover {
     background-color: #ff69b4;
 }
 
+.login-btn {
+    background-color: #dda0dd;
+    margin-left: 1rem;
+}
+
+.login-btn:hover {
+    background-color: #ba55d3;
+}
+
 .content {
     background-color: #fff;
     padding: 2rem;

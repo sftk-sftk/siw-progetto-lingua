@@ -4,6 +4,7 @@ import java.awt.Image;
 import java.util.List;
 import java.util.Objects;
 
+import it.uniroma3.siw.Enum.LivelloLinguistico;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
@@ -24,15 +25,12 @@ public class Lingua {
     private String descrizione;
 	//private Image image;
 	
-	@OneToMany(fetch=FetchType.EAGER)
-	private List<LivelloLinguistico> livelli;
-	
 	@OneToOne
 	private Glossario glossario;
 
 	@Override
 	public int hashCode() {
-		return Objects.hash(descrizione, glossario, id, livelli, nome);
+		return Objects.hash(descrizione, glossario, id, nome);
 	}
 
 	@Override
@@ -45,8 +43,7 @@ public class Lingua {
 			return false;
 		Lingua other = (Lingua) obj;
 		return Objects.equals(descrizione, other.descrizione) && Objects.equals(glossario, other.glossario)
-				&& Objects.equals(id, other.id) && Objects.equals(livelli, other.livelli)
-				&& Objects.equals(nome, other.nome);
+				&& Objects.equals(id, other.id) && Objects.equals(nome, other.nome);
 	}
 
 	public Long getId() {
@@ -71,14 +68,6 @@ public class Lingua {
 
 	public void setDescrizione(String descrizione) {
 		this.descrizione = descrizione;
-	}
-
-	public List<LivelloLinguistico> getLivelli() {
-		return livelli;
-	}
-
-	public void setLivelli(List<LivelloLinguistico> livelli) {
-		this.livelli = livelli;
 	}
 
 	public Glossario getGlossario() {

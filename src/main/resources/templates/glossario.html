@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="it">
+<!-- Head fragment -->
+
+<head th:replace="fragments/head :: common-head('中文角 - 汉-意词典')"></head>
+<!--
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>中文角 - 汉-意词典</title>
+    <link rel="stylesheet" href="/css/styleGlossario.css">
+	<link href="https://fonts.googleapis.com/css2?family=Comic+Neue&display=swap" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css2?family=Hachi+Maru+Pop&family=LXGW+WenKai+TC&family=Long+Cang&family=Ma+Shan+Zheng&family=Zen+Maru+Gothic&display=swap" rel="stylesheet">
+</head>-->
+<!-- Body -->
+
+<body>
+
+	<!-- Navbar -->
+	<header th:replace="fragments/navbar :: navbar"></header>
+
+	<section class="hero">
+		<h1>Glossario di base: <c class="zen-maru-gothic-regular">汉-意词典</h1>
+		<p>Eccovi la raccolta dei vocaboli cinesi usati nel sito con traduzione e pinyin ✨</p>
+	</section>
+
+	<section class="content">
+		<h2>📚 Vocaboli principali</c>
+		</h2>
+		<div class="search-container">
+			<label for="search">Cerca una parola:</label>
+			<input type="text" id="search" placeholder="Scrivi un carattere, pinyin o italiano…🔍">
+		</div>
+
+		<div th:if="${vocaboli==null || vocaboli.isEmpty()}">Non ci sono vocaboli per questa lingua</div>
+		<table class="glossario">
+			<thead>
+				<tr>
+					<th class="carattere">汉字</th>
+					<th class="parola">Pīnyīn (拼音)</th>
+					<th class="parola">Italiano</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr th:each="vocabolo : ${vocaboli}">
+					<td th:text="${vocabolo.nome}" class="carattere">nome</td>
+					<td th:text="${vocabolo.pinyin}" class="lxgw-wenkai-tc-regular">pinyin</td>
+					<td th:text="${vocabolo.traduzione}">traduzione</td>
+				</tr>
+			</tbody>
+		</table>
+	</section>
+
+	<footer th:replace="fragments/footer :: footer"></footer>
+	<script src="/js/ricercaGlossario.js"></script>
+</body>
+
+</html>

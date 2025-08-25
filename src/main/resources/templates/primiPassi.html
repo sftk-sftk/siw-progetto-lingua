@@ -1,49 +1,38 @@
 <!DOCTYPE html>
 <html lang="it">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>中文角</title>
-    <link rel="stylesheet" href="/css/styleIndex.css">
-    <link href="https://fonts.googleapis.com/css2?family=Comic+Neue&display=swap" rel="stylesheet">
-	<link href="https://fonts.googleapis.com/css2?family=Hachi+Maru+Pop&family=LXGW+WenKai+TC&family=Long+Cang&family=Ma+Shan+Zheng&family=Zen+Maru+Gothic&display=swap" rel="stylesheet">
-</head>
+
+<!-- Head fragment -->
+
+<head th:replace="fragments/head :: common-head('中文角')"></head>
+
 <body>
-    <header>
-        <div class="logo"> <c class="zen-maru-gothic-regular">中文角</c> - L'angolo cinese</div>
-        <nav>
-            <ul>
-				<li><a href="/">Home</a></li>
-				<li><a href="/lingua/cinese">Primi passi</a></li>
-				<li><a href="/lingua/cinese/regoleGrammaticali">Tutte le regole</a></li>
-				<li><a href="/lingua/cineseTesti">Tutti i testi</a></li>
-				<li><a href="/lingua/cinese/glossario">Glossario</a></li>
-            </ul>
-        </nav>
-    </header>
+	<!-- Navbar -->
+	<header th:replace="fragments/navbar :: navbar"></header>
 
-    <section class="hero">
+	<section class="hero">
 		<section class="hero-width">
-        <div th:if="${lingua}">
-        <h1><span th:text="${lingua.nome}">Lingua cinese</span></h1>
-        <p><div th:utext="${lingua.descrizione}"></div></p>
-        <a href="#" class="btn">Inizia il viaggio 💖</a>
-        </div>
-        <div th:unless="${lingua}">Non esiste supporto per questa lingua</div>
+			<div th:if="${lingua}">
+				<h1><span th:text="${lingua.nome}">Lingua cinese</span></h1>
+				<p>
+				<div th:utext="${lingua.descrizione}"></div>
+				</p>
+				<a href="#" class="btn-primary">Scopri la prima regola 💖</a>
+				<a href="/register" class="btn-secondary">Crea il tuo profilo 💞</a>
+			</div>
+			<div th:unless="${lingua}">Non esiste supporto per questa lingua</div>
 		</section>
-    </section>
+	</section>
 
-    <section class="content">
-        <h2>✨ Cosa troverai nel sito ✨</h2>
-        <ul class="features">
-            <li>💗 Regole grammaticali di cinese per principianti</li>
-            <li>🎀 Testi di livello base in cinese</li>
-            <li>🍓 Glossario per tutte le parole cinesi utilizzate nel sito</li>
-        </ul>
-    </section>
+	<section class="content">
+		<h2>✨ Cosa troverai nel sito ✨</h2>
+		<ul class="features">
+			<li>💗 Regole grammaticali di cinese per principianti</li>
+			<li>🎀 Testi di livello base in cinese</li>
+			<li>🍓 Glossario per tutte le parole cinesi utilizzate nel sito</li>
+		</ul>
+	</section>
 
-    <footer>
-        <p>&copy; 2025 L'angolo cinese - Tutti i diritti riservati 🌈</p>
-    </footer>
+	<footer th:replace="fragments/footer :: footer"></footer>
 </body>
+
 </html>

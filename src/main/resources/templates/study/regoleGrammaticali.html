@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="it">
+
+<!-- Head fragment -->
+
+<head th:replace="fragments/head :: common-head('Regole Grammaticali 中文角')"></head>
+
+<body>
+	<!-- Navbar -->
+	<header th:replace="fragments/navbar :: navbar"></header>
+
+	<section class="hero">
+		<h1>📚 Le basi della grammatica cinese</h1>
+		<p>Impara le regole fondamentali del cinese con esempi semplici e spiegazioni chiare 🥕 </p>
+	</section>
+	<section class="content">
+		<h2>🌸 Livello Principiante <span class="zen-maru-gothic-regular">初等</span></h2>
+		<ul>
+			<div th:if="${regoleLivelloPrincipiante==null || regoleLivelloPrincipiante.isEmpty()}">Non ci sono regole
+				per
+				questo livello</div>
+			<div th:if="${!(regoleLivelloPrincipiante==null || regoleLivelloPrincipiante.isEmpty())}">
+				<table class="glossario">
+					<thead>
+						<tr>
+							<th class="carattere">Regola</th>
+							<th class="parola">Descrizione</th>
+							<th class="parola">Livello</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr th:each="regola : ${regoleLivelloPrincipiante}">
+							<td class="carattere">
+								<a th:href="@{/lingua/cinese/regolaGrammaticale/{id}(id=${regola.id})}"
+									class="kawaii-link">
+									<span th:text="${regola.nome}">regola</span>
+								</a>
+
+							</td>
+							<td th:text="${regola.descrizioneBreve}" class="lxgw-wenkai-tc-regular">descrizione</td>
+							<td th:text="${regola.livello}">livello</td>
+						</tr>
+
+					</tbody>
+				</table>
+			</div>
+		</ul>
+
+		<h2>💮 Livello Intermedio <span class="zen-maru-gothic-regular">中等</span> </h2>
+		<ul>
+			<div th:if="${regoleLivelloIntermedio==null || regoleLivelloIntermedio.isEmpty()}">Non ci sono regole per
+				questo
+				livello</div>
+			<div th:if="${!(regoleLivelloIntermedio==null || regoleLivelloIntermedio.isEmpty())}">
+				<table class="glossario">
+					<thead>
+						<tr>
+							<th class="carattere">Regola</th>
+							<th class="parola">Descrizione</th>
+							<th class="parola">Livello</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr th:each="regola : ${regoleLivelloIntermedio}">
+							<td class="carattere">
+								<a th:href="@{/lingua/cinese/regolaGrammaticale/{id}(id=${regola.id})}"
+									class="kawaii-link">
+									<span th:text="${regola.nome}">regola</span>
+								</a>
+							</td>
+							<td th:text="${regola.descrizioneBreve}" class="lxgw-wenkai-tc-regular">descrizione</td>
+							<td th:text="${regola.livello}">traduzione</td>
+							</a>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</ul>
+
+		<h2>🌺 Livello Avanzato <span class="zen-maru-gothic-regular">高等</span> </h2>
+		<ul>
+			<div th:if="${regoleLivelloAvanzato==null || regoleLivelloAvanzato.isEmpty()}">Non ci sono regole per questo
+				livello</div>
+			<div th:if="${!(regoleLivelloAvanzato==null || regoleLivelloAvanzato.isEmpty())}">
+				<table class="glossario">
+					<thead>
+						<tr>
+							<th class="carattere">Regola</th>
+							<th class="parola">Descrizione</th>
+							<th class="parola">Livello</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr th:each="regola : ${regoleLivelloAvanzato}">
+							<td class="carattere">
+								<a th:href="@{/lingua/cinese/regolaGrammaticale/{id}(id=${regola.id})}"
+									class="kawaii-link">
+									<span th:text="${regola.nome}">regola</span>
+								</a>
+							</td>
+							<td th:text="${regola.descrizioneBreve}" class="lxgw-wenkai-tc-regular">descrizione</td>
+							<td th:text="${regola.livello}">livello</td>
+							</a>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</ul>
+	</section>
+	<!--
+		<section class="content">
+			<h2>✨ Regole principali</h2>
+			<div class="grammar-list">
+				<div class="rule-box">
+					<h3>🔤 Ordine delle parole (SVO)</h3>
+					<p>In cinese, l’ordine delle parole è: Soggetto + Verbo + Oggetto.<br>Es: 我爱你 (Wǒ ài nǐ) → Io amo te 💖</p>
+				</div>
+				<div class="rule-box">
+					<h3>🕒 L’uso di 了 (le)</h3>
+					<p>Indica un’azione completata.<br>Es: 我吃了饭 (Wǒ chī le fàn) → Ho mangiato 🍚</p>
+				</div>
+				<div class="rule-box">
+					<h3>📅 Avverbi di tempo</h3>
+					<p>Vengono prima del verbo.<br>Es: 我昨天去了商店 (Wǒ zuótiān qù le shāngdiàn) → Ieri sono andato al negozio 🛍️</p>
+				</div>
+				<div class="rule-box">
+					<h3>❓ Frasi interrogative</h3>
+					<p>Spesso si aggiunge 吗 (ma) alla fine.<br>Es: 你好吗？(Nǐ hǎo ma?) → Come stai? 🌸</p>
+				</div>
+				<!- Aggiungi altre regole se vuoi ->
+	</div>
+	</section>-->
+
+	<footer th:replace="fragments/footer :: footer"></footer>
+</body>
+
+</html>

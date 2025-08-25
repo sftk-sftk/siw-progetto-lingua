@@ -54,12 +54,12 @@ public class AuthConfiguration {
 		.authorizeHttpRequests(requests -> requests
 				// Pagine pubbliche e risorse statiche
 				.requestMatchers(HttpMethod.GET,
-						"/", "/index", "/register", "/login", "/areaRiservata/**", "/landingPage/**", "/favicon.ico",
-						"/css/**", "/js/**", "/images/**"
+						"/", "/index", "/forms/register", "/forms/login", "/areaRiservata/**", "/landingPage/**", "/favicon.ico",
+						"/css/**", "/js/**", "/images/**", "/lingua/cinese/regoleGrammaticali"
 						).permitAll()
+				
+				.requestMatchers("/lingua/**","/lingua/cinese/**","/lingua/cinese/glossario").permitAll()
 				// Registrazione e login aperti a tutti (POST)
-				.requestMatchers("/lingua/**","/lingua/cinese").permitAll()
-
 				.requestMatchers(HttpMethod.POST, "/register", "/login").permitAll()
 				// Area amministrativa solo per autore
 				.requestMatchers("/admin/**").hasAuthority(ADMIN_ROLE)

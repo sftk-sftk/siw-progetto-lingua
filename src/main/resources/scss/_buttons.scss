@@ -1,0 +1,79 @@
+.login-link {
+	background-color: $color-secondary;
+	padding: 0.4rem 1rem;
+	border-radius: 20px;
+	color: $color-white;
+	transition: background-color 0.3s;
+	font-weight: bold;
+	box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.1);
+
+	&:hover {
+		background-color: $color-primary;
+		color: $color-semi-white;
+	}
+}
+
+.btn-primary {
+	background-color: $color-primary;
+	color: $color-white;
+	padding: 0.7rem 1.5rem;
+	border-radius: 25px;
+	font-weight: bold;
+	text-decoration: none;
+	margin: 0.5rem;
+	display: inline-block;
+	transition: background-color 0.3s, transform 0.2s;
+	box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.1);
+
+	&:hover {
+		background-color: $color-dark-pink;
+		color: $color-semi-white;
+		transform: scale(1.05);
+	}
+}
+
+.btn-secondary {
+	background-color: $color-light-violet;
+	color: $color-white;
+	padding: 0.7rem 1.5rem;
+	border-radius: 25px;
+	font-weight: bold;
+	text-decoration: none;
+	margin: 0.5rem;
+	display: inline-block;
+	transition: background-color 0.3s, transform 0.2s;
+	box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.1);
+
+	&:hover {
+		background-color: $color-violet;
+		color: $color-semi-white;
+		transform: scale(1.05);
+	}
+}
+
+.login-btn {
+	background-color: $color-secondary;
+
+	&:hover {
+		background-color: $color-primary;
+	}
+}
+
+form {
+	.btn {
+		padding: 0.8rem;
+		background-color: $color-secondary;
+		border: none;
+		color: $color-white;
+		font-weight: bold;
+		border-radius: 30px;
+		font-size: 1rem;
+		cursor: pointer;
+		box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.1);
+		transition: background-color 0.3s;
+
+		&:hover {
+			background-color: $color-primary;
+		}
+	}
+}

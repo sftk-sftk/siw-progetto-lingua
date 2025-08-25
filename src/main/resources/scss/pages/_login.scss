@@ -1,0 +1,81 @@
+.register-link,
+.home-link {
+	margin-top: 1rem;
+	font-size: 0.9rem;
+
+	a {
+		color: $color-dark-pink;
+		text-decoration: none;
+		font-weight: bold;
+
+		&:hover {
+			text-decoration: underline;
+		}
+	}
+}
+
+.home-link {
+	margin-top: -0.8rem;
+}
+/*
+body {
+	align-items: center;
+	margin: 5rem 33rem;
+
+	.login-page {
+		.login-container {
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			height: 100vh;
+
+			h1 {
+				font-size: 2.5rem;
+				color: $color-dark-pink;
+			}
+
+			p {
+				font-size: 1rem;
+				color: $color-footer-text;
+				margin-bottom: 1.5rem;
+			}
+
+			background-color: $color-table-border;
+			padding: 2.5rem;
+			border-radius: 20px;
+			box-shadow: 4px 4px 12px $color-gray;
+			width: 90%;
+			max-width: 400px;
+			text-align: center;
+		}
+	}
+}*/
+
+body.login-page {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 100vh;
+	background-color: $color-light-bg;
+
+	.login-container {
+		background-color: $color-table-border;
+		padding: 2.5rem;
+		border-radius: 20px;
+		box-shadow: 4px 4px 12px rgba(0, 0, 0, 0.1);
+		width: 90%;
+		max-width: 400px;
+		text-align: center;
+
+		h1 {
+			font-size: 2.5rem;
+			color: $color-dark-pink;
+		}
+
+		p {
+			font-size: 1rem;
+			color: $color-footer-text;
+			margin-bottom: 1.5rem;
+		}
+	}
+}

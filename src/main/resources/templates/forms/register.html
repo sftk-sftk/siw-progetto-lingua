@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="it">
+	
+<!-- Head fragment -->
+<head th:replace="fragments/head :: common-head('Login 中文角')"></head>
+
+<body class="login-page">
+	<div class="login-container">
+		<h1>✨ <span class="zen-maru-gothic-regular">登录中文角</span> - Registrati all'angolo cinese ✨</h1>
+		<p>Inserisci le tue informazioni per registrarti </p>
+		<form method="post" action="/login">
+			<label for="username">Nome utente</label>
+			<input type="text" id="username" name="username" required>
+
+			<label for="password">Password</label>
+			<input type="password" id="password" name="password" required>
+
+			<button type="submit" class="btn">✨ Accedi ✨</button>
+		</form>
+		<p class="register-link">Non hai un account? <a href="/register">Registrati qui 💫</a></p>
+		<p class="home-link">Ritorna alla <a href="/">home 🏡</a></p>
+	</div>
+</body>
+
+</html>

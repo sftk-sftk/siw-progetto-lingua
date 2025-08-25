@@ -1,0 +1,30 @@
+.glossario {
+	margin: 0 auto;
+	border-collapse: collapse;
+	width: 90%;
+	max-width: 800px;
+	font-size: 1.2rem;
+	background-color: $color-lightest-bg;
+	box-shadow: 0 0 10px $color-shadow;
+	border-radius: 10px;
+	overflow: hidden;
+
+	thead {
+		background-color: $color-secondary;
+		color: $color-white;
+	}
+
+	th,
+	td {
+		padding: 1rem;
+		border: 1px solid $color-table-border;
+	}
+
+	tr:nth-child(even) {
+		background-color: $color-light-bg;
+	}
+
+	tr:hover {
+		background-color: $color-hover-bg;
+	}
+}

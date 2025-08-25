@@ -3,6 +3,7 @@ package it.uniroma3.siw.model;
 import java.util.List;
 import java.util.Objects;
 
+import it.uniroma3.siw.Enum.LivelloLinguistico;
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -11,6 +12,8 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.ManyToMany;
 import jakarta.persistence.OneToMany;
+import jakarta.persistence.Enumerated;
+import jakarta.persistence.EnumType;
 
 @Entity
 public class RegolaGrammaticale {
@@ -19,17 +22,23 @@ public class RegolaGrammaticale {
 	private Long id;
 	@Column(nullable=false)
 	private String nome;
+	@Column(nullable=false)
+	private String descrizioneBreve;
 	private String descrizione;
 	
 	@OneToMany(cascade= {CascadeType.ALL})
 	private List<EsempioRegola> esempi;
+	
+	@Column(nullable=false)
+	@Enumerated(EnumType.STRING) // per salvare "A1", "A2", ecc. nel DB
+	private LivelloLinguistico livello;
 	
 	@ManyToMany
 	private List<Testo> testi;
 
 	@Override
 	public int hashCode() {
-		return Objects.hash(descrizione, esempi, id, nome, testi);
+		return Objects.hash(descrizione, descrizioneBreve, esempi, id, livello, nome, testi);
 	}
 
 	@Override
@@ -41,8 +50,9 @@ public class RegolaGrammaticale {
 		if (getClass() != obj.getClass())
 			return false;
 		RegolaGrammaticale other = (RegolaGrammaticale) obj;
-		return Objects.equals(descrizione, other.descrizione) && Objects.equals(esempi, other.esempi)
-				&& Objects.equals(id, other.id) && Objects.equals(nome, other.nome)
+		return Objects.equals(descrizione, other.descrizione)
+				&& Objects.equals(descrizioneBreve, other.descrizioneBreve) && Objects.equals(esempi, other.esempi)
+				&& Objects.equals(id, other.id) && livello == other.livello && Objects.equals(nome, other.nome)
 				&& Objects.equals(testi, other.testi);
 	}
 
@@ -85,5 +95,21 @@ public class RegolaGrammaticale {
 	public void setTesti(List<Testo> testi) {
 		this.testi = testi;
 	}
-	
+
+	public LivelloLinguistico getLivello() {
+		return livello;
+	}
+
+	public void setLivello(LivelloLinguistico livello) {
+		this.livello = livello;
+	}
+
+	public String getDescrizioneBreve() {
+		return descrizioneBreve;
+	}
+
+	public void setDescrizioneBreve(String descrizioneBreve) {
+		this.descrizioneBreve = descrizioneBreve;
+	}
+
 }

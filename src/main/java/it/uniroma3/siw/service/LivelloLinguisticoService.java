@@ -1,4 +1,4 @@
-package it.uniroma3.siw.service;
+/*package it.uniroma3.siw.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -10,3 +10,4 @@ public class LivelloLinguisticoService {
 	@Autowired
 	private LivelloLinguisticoRepository livelloLinguisticoRepository;
 }
+*/

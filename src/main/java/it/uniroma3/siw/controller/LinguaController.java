@@ -11,7 +11,7 @@ public class LinguaController {
 	@Autowired LinguaService linguaService;
 	
 	@GetMapping("/lingua/cinese")
-	public String lingua(Model model) {
+	public String getLingua(Model model) {
 		model.addAttribute("lingua", this.linguaService.getLinguaById());
 		return "primiPassi.html";
 	}

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="it">
+	
+<!-- Head fragment -->
+<head th:replace="fragments/head :: common-head('Login 中文角')"></head>
+
+<!--
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login 中文角</title>
+    <link rel="stylesheet" href="/css/styleLogin.css">
+    <link href="https://fonts.googleapis.com/css2?family=Comic+Neue&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Hachi+Maru+Pop&family=LXGW+WenKai+TC&family=Long+Cang&family=Ma+Shan+Zheng&family=Zen+Maru+Gothic&display=swap" rel="stylesheet">
+</head>-->
+
+<body class="login-page">
+	<div class="login-container">
+		<h1>✨ <span class="zen-maru-gothic-regular">登录中文角</span> - Accedi all'angolo cinese ✨</h1>
+		<p>Inserisci le tue credenziali per accedere </p>
+		<form method="post" action="/login">
+			<label for="username">Nome utente</label>
+			<input type="text" id="username" name="username" required>
+
+			<label for="password">Password</label>
+			<input type="password" id="password" name="password" required>
+
+			<button type="submit" class="btn">✨ Accedi ✨</button>
+		</form>
+		<p class="register-link">Non hai un account? <a href="/register">Registrati qui 💫</a></p>
+		<p class="home-link">Ritorna alla <a href="/">home 🏡</a></p>
+	</div>
+</body>
+
+</html>

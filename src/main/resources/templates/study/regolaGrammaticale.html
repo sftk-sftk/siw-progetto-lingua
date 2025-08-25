@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="it">
+
+<!-- Head fragment -->
+
+<head th:replace="fragments/head :: common-head('Grammatica 中文角')"></head>
+
+<body>
+	<!-- Navbar -->
+	<header th:replace="fragments/navbar :: navbar"></header>
+
+	<section class="hero">
+		<h1>📚 Grammatica cinese: oggi impariamo</h1>
+		<p>🥕 <span th:text="${regola.descrizioneBreve}">descrizione </span> (Livello <span th:text="${regola.livello}">regola</span>)</p>
+	</section>
+	<section class="content">
+		<h2 th:text="${regola.nome}">🌸 Regola</h2>
+		<div th:text="${regola.descrizione}">
+			
+		</div>
+	</section>
+
+	<footer th:replace="fragments/footer :: footer"></footer>
+</body>
+
+</html>
