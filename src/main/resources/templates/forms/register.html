@@ -1,25 +1,48 @@
 <!DOCTYPE html>
 <html lang="it">
-	
+
 <!-- Head fragment -->
-<head th:replace="fragments/head :: common-head('Login 中文角')"></head>
+
+<head th:replace="fragments/head :: common-head('Registrazione 中文角')"></head>
 
 <body class="login-page">
 	<div class="login-container">
-		<h1>✨ <span class="zen-maru-gothic-regular">登录中文角</span> - Registrati all'angolo cinese ✨</h1>
+		<h1>✨ <span class="zen-maru-gothic-regular">中文角</span> - Registrati all'angolo cinese ✨</h1>
 		<p>Inserisci le tue informazioni per registrarti </p>
-		<form method="post" action="/login">
-			<label for="username">Nome utente</label>
-			<input type="text" id="username" name="username" required>
+		<form th:action="@{/register}" method="post" onsubmit="return validateForm(event)">
+			<div>
+				<label for="nome">Nome</label>
+				<input type="text" id="nome" th:field="*{user.nome}" th:readonly="${isOidc}" name="nome" required>
+			</div>
+			<div>
+				<label for="cognome">Cognome</label>
+				<input type="text" id="cognome" th:field="*{user.cognome}" th:readonly="${isOidc}" name="cognome"
+					required>
+			</div>
+			<div>
+				<label for="username">Username</label>
+				<input type="text" id="username" th:field="*{user.username}" th:readonly="${isOidc}" name="username"
+					required>
+			</div>
+			<div>
+				<label for="email">Email</label>
+				<input type="email" id="email" th:field="*{user.email}" th:readonly="${isOidc}" name="email" required>
+			</div>
+			<div th:if="${!isOidc}">
+				<label for="password">Password</label>
+				<input type="password" id="password" name="password" required>
+			</div>
+			<div th:if="${!isOidc}">
+				<label for="confermaPassword">Conferma Password</label>
+				<input type="password" id="confermaPassword" name="confermaPassword" required>
+			</div>
 
-			<label for="password">Password</label>
-			<input type="password" id="password" name="password" required>
-
-			<button type="submit" class="btn">✨ Accedi ✨</button>
+			<button type="submit" class="btn">🥕 Registrati 🥕</button>
 		</form>
-		<p class="register-link">Non hai un account? <a href="/register">Registrati qui 💫</a></p>
+		<p class="register-link">Hai un account? <a href="/login">Accedi qui 💫</a></p>
 		<p class="home-link">Ritorna alla <a href="/">home 🏡</a></p>
 	</div>
+	<script src="/js/controlloRegistrazione.js"></script>
 </body>
 
 </html>

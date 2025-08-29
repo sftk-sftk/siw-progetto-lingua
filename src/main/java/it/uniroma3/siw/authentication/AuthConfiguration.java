@@ -33,8 +33,8 @@ public class AuthConfiguration {
 			throws Exception {
 		auth.jdbcAuthentication()
 		.dataSource(dataSource)
-		.authoritiesByUsernameQuery("SELECT username, role from credenziali WHERE username=?")
-		.usersByUsernameQuery("SELECT username, password, 1 as enabled FROM credenziali WHERE username=?");
+		.authoritiesByUsernameQuery("SELECT username, role FROM credentials WHERE username=?")
+		.usersByUsernameQuery("SELECT username, password, 1 as enabled FROM credentials WHERE username=?");
 	}
 
 	@Bean
@@ -55,7 +55,7 @@ public class AuthConfiguration {
 				// Pagine pubbliche e risorse statiche
 				.requestMatchers(HttpMethod.GET,
 						"/", "/index", "/forms/register", "/forms/login", "/areaRiservata/**", "/landingPage/**", "/favicon.ico",
-						"/css/**", "/js/**", "/images/**", "/lingua/cinese/regoleGrammaticali"
+						"/css/**", "/js/**", "/images/**", "/lingua/cinese/regoleGrammaticali", "/register", "/login"
 						).permitAll()
 				
 				.requestMatchers("/lingua/**","/lingua/cinese/**","/lingua/cinese/glossario").permitAll()

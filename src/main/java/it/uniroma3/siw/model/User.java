@@ -2,11 +2,13 @@ package it.uniroma3.siw.model;
 
 import java.util.Objects;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
+import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
 
 @Entity
@@ -18,11 +20,19 @@ public class User {
 	
 	@NotBlank
 	private String nome;
+	
 	@NotBlank
 	private String cognome;
+	
+	private String email;
+	
+	@NotBlank(message = "email field must not be blank")
+    @Column(nullable = false, unique = true)
+	private String username;
+	
 	@Override
 	public int hashCode() {
-		return Objects.hash(cognome, id, nome);
+		return Objects.hash(cognome, id, username, nome);
 	}
 	@Override
 	public boolean equals(Object obj) {
@@ -34,7 +44,7 @@ public class User {
 			return false;
 		User other = (User) obj;
 		return Objects.equals(cognome, other.cognome) && Objects.equals(id, other.id)
-				&& Objects.equals(nome, other.nome);
+				&& Objects.equals(username, other.username) && Objects.equals(nome, other.nome);
 	}
 	/**
 	 * @return the id
@@ -72,6 +82,17 @@ public class User {
 	public void setCognome(String cognome) {
 		this.cognome = cognome;
 	}
-
 	
+	public String getEmail() {
+		return email;
+	}
+	public void setEmail(String email) {
+		this.email = email;
+	}
+	public String getUsername() {
+		return username;
+	}
+	public void setUsername(String username) {
+		this.username = username;
+	}
 }

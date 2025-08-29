@@ -23,6 +23,11 @@ public class Credentials {
 	@NotBlank
 	@Column(unique = true)	//necessario fare un validatore per assivurarsi che l'username sia unica per ogni user
 	private String username;
+	
+	@NotBlank
+	@Column(unique = true)
+	private String email;
+	
 	@NotBlank
 	private String password;
 	@NotBlank
@@ -33,7 +38,7 @@ public class Credentials {
 
 	@Override
 	public int hashCode() {
-		return Objects.hash(role, username);
+		return Objects.hash(email, id, password, role, user, username);
 	}
 
 	@Override
@@ -45,7 +50,9 @@ public class Credentials {
 		if (getClass() != obj.getClass())
 			return false;
 		Credentials other = (Credentials) obj;
-		return Objects.equals(role, other.role) && Objects.equals(username, other.username);
+		return Objects.equals(email, other.email) && Objects.equals(id, other.id)
+				&& Objects.equals(password, other.password) && Objects.equals(role, other.role)
+				&& Objects.equals(user, other.user) && Objects.equals(username, other.username);
 	}
 
 	/**
@@ -117,4 +124,21 @@ public class Credentials {
 	public void setUser(User user) {
 		this.user = user;
 	}
+
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
+	}
+
+	public boolean isUser() {
+		return this.role.equals("UTENTE");
+	}
+	
+	public boolean isAdmin() {
+		return this.role.equals("ADMIN");
+	}
+	
 }

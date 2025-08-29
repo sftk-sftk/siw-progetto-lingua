@@ -10,7 +10,18 @@
 				<li><a href="/lingua/cinese/regoleGrammaticali">Tutte le regole</a></li>
 				<li><a href="/lingua/cinese/testi">Tutti i testi</a></li>
 				<li><a href="/lingua/cinese/glossario">Glossario</a></li>
-				<li><a href="/login" class="login-link">Login 🍭</a></li>
+				<li>
+				<if th:if="${credentials == null}">
+					<a href="/login" class="login-link">Login 🍭</a>
+				</if>
+
+				<!-- ALTERNATIVE WAY TO CHECK FOR AUTHENTICATED USER, boolean expression to ensure correct behavior -->
+				<if th:if="${credentials != null}">
+					<a class="login-link" th:href="${credentials.role == 'UTENTE' ? '/user/dashboard' : 
+					            (credentials.role == 'ADMIN' ? '/admin/dashboard' : '')}">
+						Profilo 🥕</a>
+				</if>
+				</li>
 			</ul>
 		</nav>
 	</header>

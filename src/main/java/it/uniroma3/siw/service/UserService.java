@@ -57,4 +57,17 @@ public class UserService {
             result.add(user);
         return result;
     }
+
+	public void save(User user) {
+		this.userRepository.save(user);
+		
+	}
+
+	public List<User> findByUsername(String username) {
+		return userRepository.findByUsername(username);
+	}
+
+	public List<User> findByEmail(String email) {
+		return userRepository.findByEmail(email);
+	}
 }
